@@ -1,0 +1,10 @@
+#set terminal postscript landscape enhanced color
+#set output '| ps2pdf - diagram.pdf'
+set title "titulo"
+set xrange[xmin:xmax]
+set yrange[ymin:ymax]
+unset key; unset tics; unset border
+##this is always
+set arrow from -2,0 to 2,0 nohead lw 1
+##this is always
+

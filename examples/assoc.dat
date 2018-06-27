@@ -1,0 +1,15 @@
+--General section--
+charge 0
+mult 1
+
+--CDS section--
+sampling association
+A= cat
+B= co
+rotate 2 com 2.0 1.0
+
+
+--Screening of the structures section--
+avgerr 0.0001	
+bigerr 5
+thdiss 0.1		

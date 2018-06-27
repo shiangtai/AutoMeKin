@@ -1,0 +1,24 @@
+--General section--
+molecule FA
+HighLevel 	b3lyp/6-31g*//mpwb95/6-31G*
+HL_rxn_network complete
+iop	iop(3/76=0560004400)
+charge 0
+mult 1
+
+--CDS section--
+sampling external 
+ntraj 10
+
+--BBFS section--
+freqmin 200
+slowmode 
+
+--Screening of the structures section--
+avgerr 1e-4
+bigerr 1
+thdiss 0.1
+
+--Kinetics section--
+Rate microcanonical
+EKMC 150

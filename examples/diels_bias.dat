@@ -1,0 +1,34 @@
+--General section--
+molecule diels
+HighLevel b3lyp/6-31g(d,p)
+HL_rxn_network complete
+charge 0
+mult   1
+
+--CDS section--
+sampling canonical
+temp     2
+ntraj 10
+fs 1000
+nbondsform 2
+1 13 
+2 8
+kapparep 200 
+kappa 200
+iexp 1.0
+rmin 0.5
+irange 10
+
+
+--BBFS section--
+freqmin 200
+
+--Screening of the structures section--
+avgerr 0.0001   
+bigerr 1        
+thdiss 0.1      
+
+--Kinetics section--
+Rate  microcanonical
+EKMC  150
+

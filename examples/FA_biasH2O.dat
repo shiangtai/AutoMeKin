@@ -1,0 +1,36 @@
+--General section--
+molecule FA
+HighLevel b3lyp/6-31g(d,p)
+HL_rxn_network complete
+charge 0
+mult   1
+
+--CDS section--
+sampling canonical
+temp  5000
+ntraj 1
+nbondsform 1
+3 4
+nbondsbreak 2
+1 3
+1 4
+kapparep 100
+kappa 100
+iexp 1.0
+rmin 0.5
+irange 10
+
+
+--BBFS section--
+freqmin 200
+fastmode
+
+--Screening of the structures section--
+avgerr 0.0001	
+bigerr 1	
+thdiss 0.1	
+
+--Kinetics section--
+Rate  microcanonical
+EKMC  150
+
