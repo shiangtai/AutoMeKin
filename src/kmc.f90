@@ -8,15 +8,15 @@ implicit none
 ! ndd species that dissapear
 character*80 :: title
 integer, parameter :: dp = selected_real_kind(15,307)
-integer :: m,nran,nr,nesp,inran,i,j,k,l,mu,ndisp,pd,kk,ijk,tcont,tint
+integer :: m,nran,nr,nesp,inran,i,j,k,l,mu,ndisp,pd,kk,ijk,tcont,tint,rep
 real(dp) :: t,a0,r2a0,suma,ptot
 real(dp) :: rnd(2)
-integer,dimension(:),allocatable :: p,p0,re,pr,n,ndd,cont
+integer,dimension(:),allocatable :: p,p0,re,pr,n,ndd,cont,pp,ppold
 real (dp) ,dimension(:),allocatable :: a,rate
 read(*,"(a80)") title
 print "(t3,a80)",title
 read(*,*) m,nesp,nran
-allocate(re(m),pr(m),a(m),rate(m),p0(nesp),p(nesp),n(nesp),cont(m))
+allocate(re(m),pr(m),a(m),rate(m),p0(nesp),p(nesp),n(nesp),cont(m),pp(nesp),ppold(nesp))
 n=(/ (l,l=1,nesp) /)
 do i=1,m
 read(*,*) rate(I),re(i),pr(i)
@@ -43,8 +43,10 @@ print "(/,t3,a,1p,i10)","Step size =",tint
 big: do inran=1,nran
    print "(/,t3,a,i4,/,t3,a,9999(i7))","Calculation number",inran,"Time(ps)",n
    p=p0
+   pp=p0
    t=0.d0
    tcont=0
+   rep=0
    print "(e10.4,9999(i7))",t,p
    do j=1,m
       a(j)=rate(j)*p(re(j))
@@ -67,7 +69,17 @@ big: do inran=1,nran
         a(j)=rate(j)*p(re(j))
      enddo
      a0=sum(a)
-     if(mod(tcont,tint)==0.or.a0==0) print "(e10.4,9999(i7))",t,p
+     if(mod(tcont,tint)==0.or.a0==0) then
+       print "(e10.4,9999(i7))",t,p
+       ppold=pp
+       pp=p   
+       do j=1,m
+          if(pp(j)==ppold(j).and.ppold(j)>0) then
+             rep=rep+1
+          endif 
+       enddo  
+       if(rep==1000) exit 
+     endif
    enddo
 enddo big
 print*,"Population of every species"
