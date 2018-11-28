@@ -9,7 +9,7 @@ implicit none
 character*80 :: title
 integer, parameter :: dp = selected_real_kind(15,307)
 integer :: m,nran,nr,nesp,inran,i,j,k,l,mu,ndisp,pd,kk,ijk,tcont,tint,rep
-real(dp) :: t,a0,r2a0,suma,ptot
+real(dp) :: t,a0,r2a0,suma,ptot,diff
 real(dp) :: rnd(2)
 integer,dimension(:),allocatable :: p,p0,re,pr,n,ndd,cont,pp,ppold
 real (dp) ,dimension(:),allocatable :: a,rate
@@ -73,11 +73,11 @@ big: do inran=1,nran
        print "(e10.4,9999(i7))",t,p
        ppold=pp
        pp=p   
+       diff=0
        do j=1,m
-          if(pp(j)==ppold(j).and.ppold(j)>0) then
-             rep=rep+1
-          endif 
+          diff=diff+(ppold(j)-pp(j))**2
        enddo  
+       if(diff==0) rep=rep+1 
        if(rep==1000) exit 
      endif
    enddo
