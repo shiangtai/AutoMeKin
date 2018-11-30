@@ -8,7 +8,7 @@ implicit none
 ! ndd species that dissapear
 character*80 :: title
 integer, parameter :: dp = selected_real_kind(15,307)
-integer :: m,nran,nr,nesp,inran,i,j,k,l,mu,ndisp,pd,kk,ijk,tcont,tint,lexit
+integer :: m,nran,nr,nesp,inran,i,j,k,l,mu,ndisp,pd,kk,ijk,tcont,tint
 real(dp) :: t,a0,r2a0,suma,ptot
 real(dp) :: rnd(2)
 integer,dimension(:),allocatable :: p,p0,re,pr,n,ndd,cont,pold,sig,sigold,rep
@@ -40,21 +40,20 @@ print "(t3,a,1p,20(e9.2))","Rates:",rate
 print "(t3,a,20(i9))","Reacts:",re
 print "(t3,a,20(i9))","Prods :",pr
 print "(/,t3,a,1p,i10)","Step size =",tint
-big: do inran=1,nran
-   print "(/,t3,a,i4,/,t3,a,9999(i7))","Calculation number",inran,"Time(ps)",n
+outter: do inran=1,nran
+   print "(/,t3,a,i4,/,t3,a,9999(i8))","Calculation number",inran,"Time(ps)",n
    p=p0
    pold=p0
-   sig=0
+   sig=p0
    t=0.d0
    tcont=0
-   lexit=0
    rep=0
-   print "(e10.4,9999(i7))",t,p
+   print "(e10.4,9999(i8))",t,p
    do j=1,m
       a(j)=rate(j)*p(re(j))
    enddo
    a0=sum(a)
-   do while(a0>0)
+   inner: do while(a0>0)
      call random_number(rnd)
      t=t-log(rnd(1))/a0      
      r2a0=rnd(2)*a0
@@ -66,32 +65,34 @@ big: do inran=1,nran
      enddo s1
      p(re(mu))=p(re(mu))-1
      p(pr(mu))=p(pr(mu))+1
-
-     do j=1,m
-        sigold(j)=sig(j)
-        if(p(j)>pold(j)) sig(j)=0
-        if(p(j)<pold(j)) sig(j)=1
-        if(sig(j).ne.sigold(j).and.p(j)>0.and.pold(j)>0) then
-           rep(j)=rep(j)+1
-           if(rep(j)==1000) lexit=1 
-        endif
-     enddo  
-     if(lexit==1) exit
      cont(mu)=cont(mu)+1
      tcont=tcont+1
+!Test of equilibrium
+     eq: do j=1,m
+        sigold(j)=sig(j)
+        if(p(j)>pold(j)) sig(j)=p(j)
+        if(p(j)<pold(j)) sig(j)=-p(j)
+        if(sig(j)*sigold(j)<0) then
+           rep(j)=rep(j)+1
+           if(rep(j)==1000) exit inner
+        endif
+     enddo eq
+!Test of equilibrium
      do j=1,m
         a(j)=rate(j)*p(re(j))
      enddo
      a0=sum(a)
-     if(mod(tcont,tint)==0.or.a0==0) print "(e10.4,9999(i7))",t,p 
+     if(mod(tcont,tint)==0.or.a0==0) print "(e10.4,9999(i8))",t,p 
+   enddo inner
+!Printing final populations
+   print*,"Population of every species"
+   do i=1,nesp
+      print "(i6,i8)",i,p(i)
    enddo
-enddo big
-print*,"Population of every species"
-do i=1,nesp
-   print "(i6,i7)",i,p(i)
-enddo
-print*,"counts per process"
-do i=1,m
-   print "(i6,i20)",i,cont(i)
-enddo
+!Printing statistics
+   print*,"counts per process"
+   do i=1,m
+      print "(i6,i20)",i,cont(i)
+   enddo
+enddo outter
 end program kmc
