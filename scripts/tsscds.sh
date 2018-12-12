@@ -375,7 +375,7 @@ if [ $wrkmode -eq 0 ]; then ts_template="$(cat $sharedir/ts_templateslow)" ; fi
 if [ $wrkmode -eq 1 ]; then ts_template="$(cat $sharedir/ts_templatefast)" ; fi
 dum_ts="$(echo "$ts_template" | sed 's/method/'"$method"' charge='$charge'/g')"
 dumoldgeofreq="$(cat $sharedir/freq_template2 | sed 's/method/'"$method"' charge='$charge'/g')"
-if [ $sampling -lt 3 ]; then
+if [ $sampling -ne 3 ]; then
    echo ""
    echo "Performing frequency calculation"
    dumfreq="$(awk 'BEGIN{one="1"};{if(NR>2 && NF==4) print $1,$2,one,$3,one,$4,one}' $molecule.xyz)"
