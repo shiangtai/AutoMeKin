@@ -100,7 +100,7 @@ if len(sys.argv) == 5:
 elif os.path.isfile('tsscds.dat'):
    f_mult = open('tsscds.dat', 'r')
    for line in f_mult:
-      if re.search("mult",line,re.IGNORECASE):
+      if re.search("mult ",line,re.IGNORECASE):
          multiplicity = int(line.split()[1]) 
          print ' '
          print '######################################################################################  \n'
