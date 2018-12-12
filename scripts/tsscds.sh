@@ -40,6 +40,7 @@ srandseed=$(echo $nb | awk '/batch/{print $0}' | sed 's@batch@@' | awk '{print $
 ###EMN
 molecule=` awk '{if($1=="molecule") print $2}'  $inputfile `
 charge=`awk 'BEGIN{ch=0};{if($1=="charge") ch=$2};END{print ch}' $inputfile `
+multiple_minima=`awk 'BEGIN{mm=1};{if($1=="multiple_minima" && $2=="yes") mm=1};{if($1=="multiple_minima" && $2=="no") mm=0};END{print mm}' $inputfile `
 sampling=` awk '{if($1=="sampling") {if($2=="microcanonical") print "1";if($2=="canonical") print "2";if($2=="association") print "3";if($2=="external") print "4"}}'  $inputfile `
 
 echo "+++General Section+++"
@@ -72,7 +73,7 @@ if [ $sampling -ne 3 ]; then
 #      min0=$(awk 'BEGIN{min0=0};{if($1=="min0") print $2};END{print min0}' $inputfile)
 ##sel_mol.sh will choose a minimum from either tsdirll or tsdirhl to perform itsscds
 #      sel_mol.sh $inputfile $min0
-      sel_mol.sh $inputfile 
+      sel_mol.sh $inputfile $multiple_minima
    fi
 ##
 fi
