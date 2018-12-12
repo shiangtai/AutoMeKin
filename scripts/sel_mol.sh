@@ -6,6 +6,7 @@ echo "Selecting starting structure in sel_mol"
 seed=$(basename $PWD | awk '/batch/{print $0}' | sed 's@batch@@' | awk '{print $1+100}')
 ###EMN
 inputfile=$1
+mm=$2
 rate=` awk '/Rate/{if ($2=="canonical") print "0";if($2=="microcanonical") print "1" }' $inputfile `
 energy=` awk 'BEGIN{e=0};/EKMC/{e=$2};END{print e}'  $inputfile `
 en=`awk 'BEGIN{if('$rate'==0) en=100;if('$rate'==1) en='$energy'};{if($1=="MaxEn") en=$2};END{print en}' $inputfile `
@@ -59,7 +60,7 @@ factor=1.5
 #   sqlite3 $mindirhl/minshl.db "select geom from minshl where name='$names'" 
 #   awk '{if(NR==1) print $0"\n"};{if(NF==4) print $0}' $mindirhl/MIN$selm"_"*.rxyz > $molecule.xyz
 #elif [ -f $minfilell ] && [ -f $kmcfilell ]; then
-if [ -f $minfilell ] && [ -f $kmcfilell ]; then
+if [ -f $minfilell ] && [ -f $kmcfilell ] && [ $mm -eq 1 ]; then
    echo "itsscds with minima from tsdirll"
 #   if [ $2 -gt 0 ]; then
 #      minn=$2
