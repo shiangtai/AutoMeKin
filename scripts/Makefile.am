@@ -17,6 +17,6 @@ dist_bin_SCRIPTS = chemical_formula.sh \
 	      utils.sh llcalcs.sh final.sh get_NM_mopac.sh get_geom_thermo_mopac.sh  \
               conf_isomer_ts.sh tsll_view.sh track_view.sh \
               window.sh select.sh redo_screening.sh  kinetics.sh \
-              slurm_settings_ft2.sh abort.sh remove_ts.sh
+              slurm_settings_ft2.sh abort.sh remove_ts.sh run_test.sh
 
 
