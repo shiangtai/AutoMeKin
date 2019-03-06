@@ -68,7 +68,7 @@ outter: do inran=1,nran
      cont(mu)=cont(mu)+1
      tcont=tcont+1
 !Test of equilibrium
-     eq: do j=1,m
+     eq: do j=1,nesp
         sigold(j)=sig(j)
         if(p(j)>pold(j)) sig(j)=p(j)
         if(p(j)<pold(j)) sig(j)=-p(j)
