@@ -107,15 +107,15 @@ while [ $iter -le $niter ]; do
    min.sh  > /dev/null
    echo "**RXN_NETWORK calcs**"
    rxn_network.sh >/dev/null
+   echo "Succesfully finished $iter iterations"
+   echo "*********************"
+   echo "**KMC calcs**"
+   echo "*********************"
+   kmc.sh > /dev/null
+   echo "*********************"
+   echo "*Making final folder*"
+   echo "*********************"
+   final.sh > /dev/null
    ((iter=iter+1))
 done
-echo "Succesfully finished $niter iterations"
-echo "*********************"
-echo "**KMC calcs**"
-echo "*********************"
-kmc.sh > /dev/null
-echo "*********************"
-echo "*Making final folder*"
-echo "*********************"
-final.sh > /dev/null
 echo "Succesfully completed the calculations"
