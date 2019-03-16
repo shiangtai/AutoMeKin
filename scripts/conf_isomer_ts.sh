@@ -145,16 +145,40 @@ print "\n"
 }' > c_i_ts
 ###If c_i_ts is empty exit here after creating an empty conf_isomer_ts.out file
 ###
-if [ -s c_i_ts ]; then
+file=c_i_ts
+if [ -f $file ]; then
+   nof=$(awk 'BEGIN{nf=0};NR==1{nf=NF};END{print nf}' $file)
+else
+   nof=0
+fi
+###
+
+if [ $nof -ge 1 ]; then
    echo "Detecting conformational isomers"
 else
    echo -n > $working/conf_isomer_ts.out 
    echo No conformational isomers of the ts
    exit 0 
 fi
-##Now split c_i_ts
-echo "Now split c_i_ts"
+#Check that conf_isomer.out is not empty
+###
 cire=$working/conf_isomer.out
+if [ -f $cire ]; then
+   nof=$(awk 'BEGIN{nf=0};NR==1{nf=NF};END{print nf}' $cire)
+else
+   nof=0
+fi
+###
+##Now split c_i_ts if $cire exists
+if [ $nof -ge 1 ]; then
+   echo "Now split c_i_ts"
+else
+   echo -n > $working/conf_isomer_ts.out 
+   echo No conformational isomers of min nor ts 
+   exit 0 
+fi
+
+
 rxnf=${tsdir}/KMC/RXNet
 rm -f cits
 set `awk '{print NR}' c_i_ts`
@@ -187,7 +211,23 @@ do
      echo "analyze" >> cits
   fi
 done
-
+#Check that cits exists
+###
+file=cits
+if [ -f $file ]; then
+   nof=$(awk 'BEGIN{nf=0};NR==1{nf=NF};END{print nf}' $file)
+else
+   nof=0
+fi
+###
+if [ $nof -ge 1 ]; then
+   echo "Printing conformational isomers"
+else
+   echo -n > $working/conf_isomer_ts.out 
+   echo No conformational isomers of the ts
+   exit 0 
+fi
+#
 #initialize na
 na=1
 i=0
