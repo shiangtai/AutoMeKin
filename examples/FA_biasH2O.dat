@@ -1,5 +1,6 @@
 --General section--
 molecule FA
+LowLevel pm7 threads=1
 HighLevel b3lyp/6-31g(d,p)
 HL_rxn_network complete
 charge 0
