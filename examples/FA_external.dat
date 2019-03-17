@@ -1,5 +1,6 @@
 --General section--
 molecule FA
+LowLevel pm7 threads=1
 HighLevel 	b3lyp/6-31g*//mpwb95/6-31G*
 HL_rxn_network complete
 iop	iop(3/76=0560004400)
