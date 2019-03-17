@@ -287,6 +287,9 @@ echo pause -1  >> ${final}/population${postb}.gnu
 PLOT_RELEVANT.sh
 mv diagram.gnu ${final}/Energy_profile.gnu
 
+#Creating graphs
+nx.sh HL
+
 ###create RXNet.rel
 file=${final}/RXNet.cg
 awk '{if($1=="TS") print $1,$2}' ${tsdirhl}/KMC/RXNet.relevant >tmp_rel
