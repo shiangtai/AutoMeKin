@@ -70,8 +70,8 @@ outter: do inran=1,nran
 !Test of equilibrium
      eq: do j=1,nesp
         sigold(j)=sig(j)
-        if(p(j)>pold(j)) sig(j)=p(j)
-        if(p(j)<pold(j)) sig(j)=-p(j)
+        if(p(j)>pold(j)) sig(j)=1
+        if(p(j)<pold(j)) sig(j)=-1
         if(sig(j)*sigold(j)<0) then
            rep(j)=rep(j)+1
            if(rep(j)==1000) exit inner
