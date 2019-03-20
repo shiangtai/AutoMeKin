@@ -95,6 +95,7 @@ while [ $iter -le $niter ]; do
    echo "*********************"
    echo "    Iter $iter of $niter"
    echo "*********************"
+   echo "$iter/$niter" > iter.txt
    if [ $nbatch -gt 0 ]; then
       tsscds_parallel.sh $inputfile $nbatch >/dev/null
    fi
