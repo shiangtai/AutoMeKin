@@ -105,6 +105,7 @@ fi
 if [ -f $tsdirll/KMC/processinformation ]; then rm $tsdirll/KMC/processinformation ; fi
 zero=0
 echo "Starting minimum" $imin
+echo  $imin > ${tsdirll}/KMC/starting_minimum
 nnpro=0
 awk '{if(NR>2) print $0}' $tsdirll/KMC/$rxnfile > tmp_rxn
 set `awk '{print NR}' tmp_rxn`
