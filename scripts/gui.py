@@ -520,7 +520,7 @@ def proc5():
 
 #Instancia de la clase Tk
 ventana = Tk()
-ventana.title('TSSCDS Graphical User Interface')
+ventana.title('AMK Graphical User Interface')
 
 f0=Frame(ventana,width=1100,height=240,relief=RIDGE,bd=3)
 f0.grid(row=0,column=0,columnspan=10,rowspan=7)

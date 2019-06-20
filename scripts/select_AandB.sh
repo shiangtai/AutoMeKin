@@ -6,7 +6,7 @@ trap 'err_report $LINENO' ERR
 trap cleanup EXIT INT
 
 exe=$(basename $0)
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 sed "s/'/ /g;s/,/ /g" $sharedir/atsymb | awk '/character/{++nt}
 /end/{exit}
 {i0=1;if($1 ~ /character/) i0=3

@@ -1,5 +1,5 @@
 ===========================================================================
-tsscds. A computer program for finding reaction mechanisms and solving the 
+amk. A computer program for finding reaction mechanisms and solving the 
 kinetics.
 Copyright (C) 2018  Emilio Martinez-Nunez, George L. Barnes, Sabine Kopec, Daniel Pelaez-Ruiz, Aurelio Rodriguez, Roberto Rodriguez-Fernandez, James J. P. Stewart, Saulo A. Vazquez  
 
@@ -18,17 +18,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ===========================================================================
 
 ====================INSTALLATION INSTRUCTIONS==============================
-Untar and unzip the file tsscds-SOURCE-2018.tar.gz:
+Untar and unzip the file amk-SOURCE-2018.tar.gz:
 
-	tar xvfz tsscds-SOURCE-2018.tar.gz
+	tar xvfz amk-SOURCE-2018.tar.gz
 
-Before installing tsscds, be aware that the following packages are needed:
+Before installing amk, be aware that the following packages are needed:
 
 bc, environment-modules, gawk, gcc, gfortran, parallel, python-numpy, 
 python-scipy, sqlite3, zenity
 
 You can install the missing ones manually, or you can use the scripts located 
-in tsscds-SOURCE-2018 and called install-required-packages-distro.sh (where 
+in amk-SOURCE-2018 and called install-required-packages-distro.sh (where 
 distro=ubuntu-16.4lts, centos7 or sl7), which will do the work for you. The 
 ubuntu-16.4lts script installs all dependencies, but for the RHEL derivatives 
 (centos7 and sl7) you have to install parallel separately, and you have two choices:
@@ -42,7 +42,7 @@ b) install-gnu-parallel-from-epel.sh. Enables the EPEL repository and installs
 parallel from it.
 
 The program runs using two levels of theory: semiempirical (or Low-Level LL) and 
-ab initio/DFT (or High-Level HL). So far, the only program interfaced with tsscds 
+ab initio/DFT (or High-Level HL). So far, the only program interfaced with amk 
 to perform the ab initio/DFT calculations is G09. Therefore, if you want to perform 
 the HL calculations G09 should be installed and should run like in this example: 
 g09<inputfile>outputfile.
@@ -51,14 +51,14 @@ These packages might also be useful to analyze the results:
 
 gnuplot, molden, sqlitebrowser
 
-Once the above packages are installed, go to the tsscds-SOURCE-2018 folder 
+Once the above packages are installed, go to the amk-SOURCE-2018 folder 
 (if you are not already there) to configure and install the package:
 
-	cd tsscds-SOURCE-2018
+	cd amk-SOURCE-2018
 
 	./configure
 
-This will install tsscds2018 in $HOME/tsscds-2018 by default. If you want to install 
+This will install amk2018 in $HOME/amk-2018 by default. If you want to install 
 it in a different directory, type:
 
 ./configure --prefix=path_to_program
@@ -73,11 +73,11 @@ The last command (make clean) is only necessary if you want to remove from the s
 directory the object files and executables created in the compilation process.
 
 For convenience, and once “Environment Modules” has been installed, you can add to 
-your .bashrc file the following line to use the tsscds module:
+your .bashrc file the following line to use the amk module:
 
 module use path_to_program/modules
 
-where path_to_program is the path where you installed tsscds (e.g., $HOME/tsscds-2018).
+where path_to_program is the path where you installed amk (e.g., $HOME/amk-2018).
 
 
 THIS IS JUST FOR DEVELOPERS:
@@ -85,9 +85,9 @@ THIS IS JUST FOR DEVELOPERS:
 ===========================================================================
 
 ====================PROGRAM EXECUTION======================================
-To start using any of the scripts of the program, you have to load tsscds/2018 module:
+To start using any of the scripts of the program, you have to load amk/2018 module:
 
-module load tsscds/2018
+module load amk/2018
 
 To run the low-level calculations use:
 

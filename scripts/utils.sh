@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#Function for usage of tsscds_parallel
+#Function for usage of amk_parallel
 function usage {
    echo $*
    echo "Execute this script as in this example:"
-   if [ "$exe" == "slurm_script" ]; then exe="sbatch tsscds_parallel.sh";fi
+   if [ "$exe" == "slurm_script" ]; then exe="sbatch amk_parallel.sh";fi
    echo ""
    echo " $exe FA.dat 100"
    echo ""
@@ -13,12 +13,12 @@ function usage {
    exit 1
 }
 
-#Function for usage of tsscds
+#Function for usage of amk
 function usages {
    echo $*
    echo "Execute this script as in this example:"
-   echo "  $exe tsscds.dat "
-   echo "where tsscds.dat is the inputfile "
+   echo "  $exe amk.dat "
+   echo "where amk.dat is the inputfile "
    exit 1
 }
 
@@ -26,8 +26,8 @@ function usages {
 function usagell {
    echo $*
    echo "Execute this script as in this example:"
-   echo "  $exe tsscds.dat nbatches niter"
-   echo "where tsscds.dat is the inputfile"
+   echo "  $exe amk.dat nbatches niter"
+   echo "where amk.dat is the inputfile"
    echo "nbatches is the number of batches"
    echo "and niter the number of interactions"
    exit 1
@@ -35,9 +35,9 @@ function usagell {
 
 #Function to printout the references
 function print_ref {
-   build="$(awk '{print $1}' ${TSSCDS}/share/tsscds_build)"
+   build="$(awk '{print $1}' ${AMK}/share/amk_build)"
    echo "*************************************************************************"
-   echo "                   tsscds version 2018.${build}                           "
+   echo "                   amk version 2018.${build}                           "
    echo "*************************************************************************"
    echo "*                                                                       *"
    echo "*  Cite this program as:                                                *"
@@ -87,7 +87,7 @@ function slurm {
 
 #Function to submit jobs in parallel
 function doparallel {
-if [ ! -d tsscds_parallel-logs ];then mkdir tsscds_parallel-logs;fi
+if [ ! -d amk_parallel-logs ];then mkdir amk_parallel-logs;fi
 
 #slurm job?
 if [ ! -z $SLURM_JOB_ID ] && [ ! -z $SLURM_NTASKS ]
@@ -109,9 +109,9 @@ fi
 
 #progress bar only in interactive mode
 if [ -z $inter ] && [ -z "$SRUN" ]; then
-   parallel="parallel --bar --delay 0.2 -j $runningtasks --joblog tsscds_parallel-logs/${exe}-${iter}-tasks.log"
+   parallel="parallel --bar --delay 0.2 -j $runningtasks --joblog amk_parallel-logs/${exe}-${iter}-tasks.log"
 else
-   parallel="parallel --delay 0.2 -j $runningtasks --joblog tsscds_parallel-logs/${exe}-${iter}-task.log"
+   parallel="parallel --delay 0.2 -j $runningtasks --joblog amk_parallel-logs/${exe}-${iter}-task.log"
 fi
 # this runs the parallel command we want
 # in this case, we are running a script named runGP.sh

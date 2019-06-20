@@ -13,7 +13,7 @@ dist_bin_SCRIPTS = chemical_formula.sh \
 	      SCREENING.sh select_AandB.sh select_assoc.sh sel_mol.sh \
 	      simplifyRXN.sh snapshots_mopac.sh sort_assoc.sh sort.sh \
 	      SPRINT_screening_assoc.sh SPRINT_screening.sh symm.sh \
-	      thermochem.py tors.sh tsscds_parallel.sh tsscds.sh \
+	      thermochem.py tors.sh amk_parallel.sh amk.sh \
 	      utils.sh llcalcs.sh final.sh get_NM_mopac.sh get_geom_thermo_mopac.sh  \
               conf_isomer_ts.sh tsll_view.sh track_view.sh \
               window.sh select.sh redo_screening.sh  kinetics.sh \

@@ -6,7 +6,7 @@ trap 'err_report $LINENO' ERR
 trap cleanup EXIT INT
 exe=$(basename $0)
 
-inputfile=tsscds.dat
+inputfile=amk.dat
 #####
 ##### units employed in the RRKM calc. default is ps-1
 #####

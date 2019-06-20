@@ -2,7 +2,7 @@ rm -f isteps
 awk '{if(NR!=2) print $0};{if(NR==2) print ""}' $1 > filedum 
 file=filedum
 
-inputfile=tsscds.dat
+inputfile=amk.dat
 thd=`awk 'BEGIN{f=0};/NOcreatethdist/{f=1};END{print f}' $inputfile `
 
 sed "s/'/ /g" atsymb >atsdum1

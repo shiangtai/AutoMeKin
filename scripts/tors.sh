@@ -1,5 +1,5 @@
 #!/bin/bash
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 source utils.sh
 #On exit remove tmp files
 tmp_files=(ConnMat deg* fort.* intern* labels mingeom minn ScatMat ts_tors* ScalMat *_opt.* tors.arc tors.mop tors.out tors.xyz geom*)
@@ -8,11 +8,11 @@ trap cleanup EXIT INT
 
 exe=$(basename $0)
 cwd=$PWD
-if [ -f tsscds.dat ];then
-   echo "tsscds.dat is in the current dir"
-   inputfile=tsscds.dat
+if [ -f amk.dat ];then
+   echo "amk.dat is in the current dir"
+   inputfile=amk.dat
 else
-   echo "tsscds input file is missing. You sure you are in the right folder?"
+   echo "amk input file is missing. You sure you are in the right folder?"
    exit
 fi
 mole=` awk '{if($1=="molecule") print $2}'  $inputfile `

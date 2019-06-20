@@ -1,4 +1,4 @@
-inputfile=tsscds.dat
+inputfile=amk.dat
 kmc_files=catalysis_res/KMC/kmc_files
 if [ -d $kmc_files ]; then
    echo "$kmc_files folder exists"

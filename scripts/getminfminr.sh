@@ -1,7 +1,7 @@
 #!/bin/bash
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 name=$1
-inputfile=tsscds.dat
+inputfile=amk.dat
 method=` awk 'BEGIN{llcalc="PM7"};{if($1=="LowLevel") {$1="";llcalc=$0}};END{print llcalc}' $inputfile `
 charge=` awk '/charge/{print $2}'  $inputfile `
 molecule=` awk '{if($1=="molecule") print $2}'  $inputfile `

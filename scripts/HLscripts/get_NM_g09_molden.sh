@@ -1,5 +1,5 @@
 #!/bin/bash
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 sed "s/'/ /g;s/,/ /g;s/+00/+00 /g" ${sharedir}/atsymb | awk '/ams=/{amlab=1}
 /character/{++nt}
 {for(i=1;i<=(NF-1);i++) {if($1 != "real" && amlab==1 && nt==0) {++j;m[j]=$i} }}

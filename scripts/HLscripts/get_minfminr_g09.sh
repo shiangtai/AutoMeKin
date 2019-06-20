@@ -1,5 +1,5 @@
 #!/bin/bash
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 source utils.sh
 #On exit remove tmp files
 tmp_files=(tmp*)
@@ -8,7 +8,7 @@ trap cleanup2 EXIT INT
 
 exe=$(basename $0)
 
-inputfile=tsscds.dat
+inputfile=amk.dat
 molecule=` awk '{if($1=="molecule") print $2}'  $inputfile `
 tsdirhl=`awk '{if($1 == "tsdirhl") {print $2;nend=1}};END{if(nend==0) print "tsdirHL_'$molecule'"}' $inputfile`
 ##reading HL stuff

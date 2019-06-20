@@ -11,7 +11,7 @@
 # SBATCH --ntasks-per-node=2
 # SBATCH -c 10
 
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 
 exe="IRC.sh"
 source utils.sh
@@ -21,11 +21,11 @@ tmp_files=(atsdum2.out black* ConnMat deg* labels mingeom ScalMat sprint.out tmp
 trap cleanup EXIT INT
 #current working dir
 
-if [ -f tsscds.dat ];then
-   echo "tsscds.dat is in the current dir"
-   inputfile=tsscds.dat
+if [ -f amk.dat ];then
+   echo "amk.dat is in the current dir"
+   inputfile=amk.dat
 else
-   echo "tsscds input file is missing. You sure you are in the right folder?"
+   echo "amk input file is missing. You sure you are in the right folder?"
    exit
 fi
 #Make sure g09 is submitted to slurm in ft2

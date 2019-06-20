@@ -1,8 +1,8 @@
 #!/bin/bash
-if [ -f tsscds.dat ];then
-   inputfile=tsscds.dat
+if [ -f amk.dat ];then
+   inputfile=amk.dat
 else
-   echo "tsscds input file is missing. You sure you are in the right folder?"
+   echo "amk input file is missing. You sure you are in the right folder?"
    exit
 fi
 exe=$(basename $0)
@@ -25,12 +25,12 @@ if [ -f ${tsdirll}/track.db ]; then
    nojf=$(sqlite3 ${tsdirll}/track.db "select nojf from track where id='$id'")
    batch=$(find . -maxdepth 1 -type d -print | grep 'batch')
    if [ ! -z "$batch" ]; then
-      ntraj=$(for i in $(seq $noj1 $nojf); do grep "Trajectory" batch$i/tsscds.log 2>/dev/null ; done | wc -l)
+      ntraj=$(for i in $(seq $noj1 $nojf); do grep "Trajectory" batch$i/amk.log 2>/dev/null ; done | wc -l)
       emin=$(sqlite3 ${tsdirll}/track.db "select emin from track where id='$id'")
       emax=$(sqlite3 ${tsdirll}/track.db "select emax from track where id='$id'")
 ###
-      permin=$(for i in $(seq $noj1 $nojf); do awk '{if($1=="'"$flag"'") e=$4};/Npath/{++npath};/Trajectory/{++ntraj};END{diff=sqrt((e-'$emin')^2);if(diff<=1) print npath,ntraj}' batch$i/tsscds.log 2>/dev/null ; done | awk '{sumi+=$1;sumt+=$2};END{if(sumt>0) print int(sumi/sumt*100);if(sumt==0) print "-1"}')
-      permax=$(for i in $(seq $noj1 $nojf); do awk '{if($1=="'"$flag"'") e=$4};/Npath/{++npath};/Trajectory/{++ntraj};END{diff=sqrt((e-'$emax')^2);if(diff<=1) print npath,ntraj}' batch$i/tsscds.log 2>/dev/null ; done | awk '{sumi+=$1;sumt+=$2};END{if(sumt>0) print int(sumi/sumt*100);if(sumt==0) print "-1"}')
+      permin=$(for i in $(seq $noj1 $nojf); do awk '{if($1=="'"$flag"'") e=$4};/Npath/{++npath};/Trajectory/{++ntraj};END{diff=sqrt((e-'$emin')^2);if(diff<=1) print npath,ntraj}' batch$i/amk.log 2>/dev/null ; done | awk '{sumi+=$1;sumt+=$2};END{if(sumt>0) print int(sumi/sumt*100);if(sumt==0) print "-1"}')
+      permax=$(for i in $(seq $noj1 $nojf); do awk '{if($1=="'"$flag"'") e=$4};/Npath/{++npath};/Trajectory/{++ntraj};END{diff=sqrt((e-'$emax')^2);if(diff<=1) print npath,ntraj}' batch$i/amk.log 2>/dev/null ; done | awk '{sumi+=$1;sumt+=$2};END{if(sumt>0) print int(sumi/sumt*100);if(sumt==0) print "-1"}')
 ###
       sqlite3 ${tsdirll}/track.db "update track set ntraj='$ntraj' where id='$id';update track set nts='$nts' where id='$id';update track set permin='$permin' where id='$id'; update track set permax='$permax' where id='$id'"
    fi
@@ -38,6 +38,6 @@ if [ -f ${tsdirll}/track.db ]; then
    sqlite3 ${tsdirll}/track.db "select id,nts,ntraj,emin,emax,permin,permax from track" | sed 's@|@ @g' | awk '{ntraj+=$3;printf "%6.0f       %6.0f       %6.0f  %10.2f-%-10.2f     %6.0f        %6.0f\n",$1,$2,ntraj,$4,$5,$6,$7}' 
 else
    echo "${tsdirll}/track.db does not exist"
-   echo "This option is only available when running tsscds_parallel"
+   echo "This option is only available when running amk_parallel"
 fi
 ###

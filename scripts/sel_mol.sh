@@ -23,7 +23,7 @@ confilell=$tsdirll/working/conf_isomer.out
 #confilehl=$tsdirhl/working/conf_isomer.out
 factor=1.5
 #if [ -f $minfilehl ] && [ -f $kmcfilehl ]; then
-#   echo "itsscds with minima from tsdirhl"
+#   echo "iamk with minima from tsdirhl"
 #   if [ $2 -gt 0 ]; then
 #      minn=$2
 #   else 
@@ -61,7 +61,7 @@ factor=1.5
 #   awk '{if(NR==1) print $0"\n"};{if(NF==4) print $0}' $mindirhl/MIN$selm"_"*.rxyz > $molecule.xyz
 #elif [ -f $minfilell ] && [ -f $kmcfilell ]; then
 if [ -f $minfilell ] && [ -f $kmcfilell ] && [ $mm -eq 1 ]; then
-   echo "itsscds with minima from tsdirll"
+   echo "iamk with minima from tsdirll"
 #   if [ $2 -gt 0 ]; then
 #      minn=$2
 #   else
@@ -99,7 +99,7 @@ if [ -f $minfilell ] && [ -f $kmcfilell ] && [ $mm -eq 1 ]; then
    sqlite3 $mindirll/mins.db "select geom from mins where name='$names'" 
 #   awk '{if(NR==1) print $0"\n"};{if(NF==4) print $0}' $mindirll/MIN$selm"_"*.rxyz > $molecule.xyz
 else
-   echo "tsscds with only one minimum"
+   echo "amk with only one minimum"
    cp $molecule".xyz" $molecule"_ref.xyz"
 fi
 echo "Exiting sel_mol"

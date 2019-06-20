@@ -13,10 +13,10 @@ def fileread(name):
         return line
 
 #
-if os.path.isfile('tsscds.dat'):
-        inputfile='tsscds.dat'
+if os.path.isfile('amk.dat'):
+        inputfile='amk.dat'
 else:
-        inputfile='tsscds.dat'
+        inputfile='amk.dat'
 
 print "Path to inputfile:",inputfile
 

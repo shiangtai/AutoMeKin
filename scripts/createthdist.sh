@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $1 -eq 1 ]; then exit; fi
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 awk '
 NR==FNR{++i;label[i]=$1;x[i]=$2;y[i]=$3;z[i]=$4}
 NR>FNR{++j;r[$1]=$2}

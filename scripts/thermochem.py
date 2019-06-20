@@ -94,17 +94,17 @@ if number_of_atoms > 1:
    number_of_frequencies = k
 
 #EMN
-# Read multiplicity from tsscds.dat file
+# Read multiplicity from amk.dat file
 if len(sys.argv) == 5:
    multiplicity = float(sys.argv[4])
-elif os.path.isfile('tsscds.dat'):
-   f_mult = open('tsscds.dat', 'r')
+elif os.path.isfile('amk.dat'):
+   f_mult = open('amk.dat', 'r')
    for line in f_mult:
       if re.search("mult ",line,re.IGNORECASE):
          multiplicity = int(line.split()[1]) 
          print ' '
          print '######################################################################################  \n'
-         print ' Multiplicity = ', multiplicity, ' read from file tsscds.dat \n'
+         print ' Multiplicity = ', multiplicity, ' read from file amk.dat \n'
 else:
    multiplicity = 1
    print '######################################################################################  \n'

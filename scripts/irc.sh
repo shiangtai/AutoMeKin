@@ -23,7 +23,7 @@ trap 'err_report $LINENO' ERR
 trap cleanup EXIT INT
 
 cwd=$PWD
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 #check the arguments of the script
 if [ $# -gt 0 ]; then
    ci=$1
@@ -31,11 +31,11 @@ else
    ci="proceed"
 fi
 
-if [ -f tsscds.dat ];then
-   echo "tsscds.dat is in the current dir"
-   inputfile=tsscds.dat
+if [ -f amk.dat ];then
+   echo "amk.dat is in the current dir"
+   inputfile=amk.dat
 else
-   echo "tsscds input file is missing. You sure you are in the right folder?"
+   echo "amk input file is missing. You sure you are in the right folder?"
    exit
 fi
 if [ $ci != "screening" ] && [ $ci != "proceed" ]; then

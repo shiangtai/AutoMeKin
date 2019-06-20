@@ -1,12 +1,12 @@
 #!/bin/bash
 source utils.sh
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 #remove tmp files
 tmp_files=(mingeom labels deg* tmp* black_list* ConnMat sprint.* ScalMat atsdum2.out)
 trap 'err_report $LINENO' ERR
 trap cleanup EXIT INT
 exe=$(basename $0)
-inputfile=tsscds.dat
+inputfile=amk.dat
 molecule=`awk '{if($1=="molecule") print $2}' $inputfile`
 natom="$(awk 'NR>2{if(NF==4) ++natom};END{print natom}' ${molecule}.xyz)"
 thd=`awk 'BEGIN{f=0};/NOcreatethdist/{f=1};END{print f}' $inputfile `

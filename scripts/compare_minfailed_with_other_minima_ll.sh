@@ -1,7 +1,7 @@
 #!/bin/bash
 #this script serves to identify the failed minima (those that remain even after using MINFAILED.sh)
 # it compares the structure of the failed minimum with those of the MIN already optimized
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 source utils.sh
 #remove tmp files
 tmp_files=(tmp* deg* ConnMat atsdum2.out labels mingeom ScalMat sprint.* listtss)
@@ -10,7 +10,7 @@ trap cleanup EXIT INT
 
 exe=$(basename $0)
 
-inputfile=tsscds.dat
+inputfile=amk.dat
 molecule=` awk '{if($1=="molecule") print $2}'  $inputfile `
 tsdirll=`awk '{if($1 == "tsdirll") {print $2;nend=1}};END{if(nend==0) print "tsdirLL_'$molecule'"}' $inputfile`
 

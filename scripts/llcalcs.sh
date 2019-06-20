@@ -97,7 +97,7 @@ while [ $iter -le $niter ]; do
    echo "*********************"
    echo "$iter/$niter" > iter.txt
    if [ $nbatch -gt 0 ]; then
-      tsscds_parallel.sh $inputfile $nbatch >/dev/null
+      amk_parallel.sh $inputfile $nbatch >/dev/null
    fi
    echo "**IRC calcs**"
    irc.sh > /dev/null

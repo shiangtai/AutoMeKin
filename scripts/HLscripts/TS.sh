@@ -11,7 +11,7 @@
 # SBATCH --ntasks-per-node=2
 # SBATCH -c 10
 
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 
 #exe=$(basename $0)
 exe="TS.sh"
@@ -49,14 +49,14 @@ if [ ! -f $inputfile ]; then
    echo "The file $inputfile does not exist"
    exit
 fi
-if [ "$inputfile" == "tsscds.dat" ]; then
-   echo "The name of the input file is tsscds.dat"
+if [ "$inputfile" == "amk.dat" ]; then
+   echo "The name of the input file is amk.dat"
    echo ""
 else
    echo "The name of the input file is $inputfile"
-   echo "The file will be copied with the name tsscds.dat"
+   echo "The file will be copied with the name amk.dat"
    echo ""
-   ln -sf $inputfile tsscds.dat
+   ln -sf $inputfile amk.dat
 fi
 ###Do screnning before anything else (just in case)
 SCREENING.sh $inputfile

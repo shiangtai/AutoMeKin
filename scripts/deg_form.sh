@@ -1,5 +1,5 @@
 #!/bin/bash
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 
 sed "s/'/ /g;s/,/ /g" $sharedir/atsymb | awk '/character/{++nt}
 /end/{exit}

@@ -8,7 +8,7 @@ trap cleanup EXIT INT
 
 
 cwd=$PWD
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 # Printing the references of the method
 print_ref
 ##
@@ -24,14 +24,14 @@ if [ ! -f $inputfile ]; then
    echo "The file $inputfile does not exist"
    exit
 fi
-if [ "$inputfile" == "tsscds.dat" ]; then
-   echo "Reading tsscds.dat"
+if [ "$inputfile" == "amk.dat" ]; then
+   echo "Reading amk.dat"
    echo ""
 else
    echo "Reading $inputfile"
-   echo "tsscds.dat is a symbolic link of $inputfile"
+   echo "amk.dat is a symbolic link of $inputfile"
    echo ""
-   ln -sf $inputfile tsscds.dat
+   ln -sf $inputfile amk.dat
 fi
 
 nb=`basename $cwd`
@@ -71,7 +71,7 @@ if [ $sampling -ne 3 ]; then
       echo "Number of Atoms of the MS    = " $natom
       echo "Name of the Molecular System = " $molecule
 #      min0=$(awk 'BEGIN{min0=0};{if($1=="min0") print $2};END{print min0}' $inputfile)
-##sel_mol.sh will choose a minimum from either tsdirll or tsdirhl to perform itsscds
+##sel_mol.sh will choose a minimum from either tsdirll or tsdirhl to perform iamk
 #      sel_mol.sh $inputfile $min0
       sel_mol.sh $inputfile $multiple_minima
    fi

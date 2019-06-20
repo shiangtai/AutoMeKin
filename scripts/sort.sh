@@ -6,7 +6,7 @@ trap 'err_report $LINENO' ERR
 trap cleanup EXIT INT
 
 exe=$(basename $0)
-inputfile=tsscds.dat
+inputfile=amk.dat
 molecule=` awk '/molecule/{print $2}'  $inputfile `
 tsdirll=`awk '{if($1 == "tsdirll") {print $2;nend=1}};END{if(nend==0) print "'$PWD'/tsdirLL_'$molecule'"}' $inputfile`
 # toen=0 print DG

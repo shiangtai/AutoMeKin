@@ -1,7 +1,7 @@
 #!/bin/bash
 #Input  geom name_frag working_dir
 # name_frag= fragn_$nn  (sed --> frag n _ $nn )
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 source utils.sh
 #remove tmp files
 tmp_files=( deg* ConnMat labels mingeom ScalMat sprint.out)
@@ -10,7 +10,7 @@ trap cleanup2 EXIT INT
 
 exe=$(basename $0)
 
-inputfile=tsscds.dat
+inputfile=amk.dat
 molecule=`awk '{if($1=="molecule") print $2}' $inputfile`
 tsdirhl=`awk '{if($1 == "tsdirhl") {print $2;nend=1}};END{if(nend==0) print "tsdirHL_'$molecule'"}' $inputfile`
 

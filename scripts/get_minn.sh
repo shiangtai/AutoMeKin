@@ -18,7 +18,7 @@ else
    mkdir tmp_min
 fi
 
-inputfile=tsscds.dat
+inputfile=amk.dat
 ##### units employed in the RRKM calc. default is ps-1
 units=1e-12
 temperature=` awk 'BEGIN{t=0};/TKMC/{t=$2};END{print t*'$factor'}'  $inputfile `
@@ -67,7 +67,7 @@ nnpro=0
 awk '{if(NR>2 && $10=="MIN" && $5<='$en') print $0}' $rxnfile > tmp_rxn
 nlin=`wc -l tmp_rxn | awk '{print $1}'`
 if [ $nlin -eq 0 ]; then
-   echo "Warning, MaxEn is probably too low!!!. itsscds not running: No minima selected besides the reference structure"
+   echo "Warning, MaxEn is probably too low!!!. iamk not running: No minima selected besides the reference structure"
    echo $imin > minn
    exit
 fi

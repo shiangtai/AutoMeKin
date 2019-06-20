@@ -9,7 +9,7 @@ trap cleanup EXIT INT
 exe=$(basename $0)
 
 
-inputfile=tsscds.dat
+inputfile=amk.dat
 molecule=` awk '{if($1=="molecule") print $2}'  $inputfile `
 tsdirhl=`awk '{if($1 == "tsdirhl") {print $2;nend=1}};END{if(nend==0) print "tsdirHL_'$molecule'"}' $inputfile`
 temperature=` awk 'BEGIN{t=298};/TKMC/{t=$2};END{print t}'  $inputfile `

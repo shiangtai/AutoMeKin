@@ -21,12 +21,12 @@ trap cleanup EXIT INT
 
 cwd=$PWD
 
-#check whether tsscds.dat has not been deleted
-if [ -f tsscds.dat ];then
-   echo "tsscds.dat is in the current dir"
-   inputfile=tsscds.dat
+#check whether amk.dat has not been deleted
+if [ -f amk.dat ];then
+   echo "amk.dat is in the current dir"
+   inputfile=amk.dat
 else
-   echo "tsscds input file is missing. You sure you are in the right folder?"
+   echo "amk input file is missing. You sure you are in the right folder?"
    exit
 fi
 molecule=`awk '{if($1=="molecule") print $2}' $inputfile`

@@ -12,7 +12,7 @@
 # SBATCH -c 10
 
 exe="PRODs.sh"
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 source utils.sh
 #remove tmp files
 tmp_files=(atsdum2.out tmp* ff*)
@@ -22,11 +22,11 @@ trap cleanup EXIT INT
 #current working dir
 cwd=$PWD
 
-if [ -f tsscds.dat ];then
-   echo "tsscds.dat is in the current dir"
-   inputfile=tsscds.dat
+if [ -f amk.dat ];then
+   echo "amk.dat is in the current dir"
+   inputfile=amk.dat
 else
-   echo "tsscds input file is missing. You sure you are in the right folder?"
+   echo "amk input file is missing. You sure you are in the right folder?"
    exit
 fi
 

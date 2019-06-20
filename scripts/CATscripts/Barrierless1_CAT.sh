@@ -14,11 +14,11 @@ else
 fi
 
 bd=barrierless_diss
-if [ -f tsscds.dat ];then
-   echo "tsscds.dat is in the current dir"
-   inputfile=tsscds.dat
+if [ -f amk.dat ];then
+   echo "amk.dat is in the current dir"
+   inputfile=amk.dat
 else
-   echo "tsscds.dat file is missing"
+   echo "amk.dat file is missing"
    exit
 fi
 if [ -d $bd ];then

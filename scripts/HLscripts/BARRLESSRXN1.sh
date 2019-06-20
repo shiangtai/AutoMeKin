@@ -12,14 +12,14 @@
 # SBATCH -c 10
 
 
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 source utils.sh
 
-if [ -f tsscds.dat ];then
-   echo "tsscds.dat is in the current dir"
-   inputfile=tsscds.dat
+if [ -f amk.dat ];then
+   echo "amk.dat is in the current dir"
+   inputfile=amk.dat
 else
-   echo "tsscds input file is missing"
+   echo "amk input file is missing"
    exit
 fi
 
@@ -81,7 +81,7 @@ else
   echo "" >> $tsdirhl/MINs/BO/$i"_bo.dat"
   echo "$"nbo bndidx "$"end  >> $tsdirhl/MINs/BO/$i"_bo.dat"
   echo "" >> $tsdirhl/MINs/BO/$i"_bo.dat"
-  cp ${TSSCDS}/share/sbatch_four_node_10h $tsdirhl/MINs/BO/job$i.sh
+  cp ${AMK}/share/sbatch_four_node_10h $tsdirhl/MINs/BO/job$i.sh
   echo "cd $PWD/$tsdirhl" >> $tsdirhl/MINs/BO/job$i.sh
   echo "g09<"$i"_bo.dat>"$i"_bo.log" >>  $tsdirhl/MINs/BO/job$i.sh
   sbatch $tsdirhl/MINs/BO/job$i.sh

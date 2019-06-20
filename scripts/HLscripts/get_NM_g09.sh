@@ -1,7 +1,7 @@
 #!/bin/bash
 #sed "s/,/ /g" atsdum1 > atsdum2
 #sed "s/+00/+00 /g" atsdum2 > atsdum3
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 
 sed "s/'/ /g;s/,/ /g;s/+00/+00 /g" ${sharedir}/atsymb | awk '/ams=/{amlab=1} 
 /character/{++nt}

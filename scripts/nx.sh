@@ -10,10 +10,10 @@ exe=$(basename $0)
 #Enter HL or LL 
 tag=$1
 
-if [ -f tsscds.dat ];then
-   inputfile=tsscds.dat
+if [ -f amk.dat ];then
+   inputfile=amk.dat
 else
-   echo "tsscds input file is missing. You sure you are in the right folder?"
+   echo "amk input file is missing. You sure you are in the right folder?"
    exit
 fi
 molecule=`awk '{if($1=="molecule") print $2}' $inputfile`

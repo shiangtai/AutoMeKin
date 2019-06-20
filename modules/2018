@@ -30,9 +30,9 @@ set modroot $rootdir
 #########################################
 
 #specific variables ####################
-## setting variables used in TSSCDS
-#export TSSCDS=/home/usc/qf/emn/Programs/TSSCDS1.1
-#export PATH=${TSSCDS}/bin:${TSSCDS}/bin/CATscripts:${TSSCDS}/bin/HLscripts:$PATH
+## setting variables used in AMK
+#export AMK=/home/usc/qf/emn/Programs/TSSCDS1.1
+#export PATH=${AMK}/bin:${TSSCDS}/bin/CATscripts:${TSSCDS}/bin/HLscripts:$PATH
 prepend-path PATH $modroot/bin:$modroot/bin/CATscripts:$modroot/bin/HLscripts:$modroot/bin/MOPAC_DEV
 prepend-path LD_LIBRARY_PATH $modroot/lib:$modroot/bin/MOPAC_DEV
 #prepend-path LIBRARY_PATH $modroot/lib
@@ -47,5 +47,5 @@ prepend-path INFOPATH $modroot/share/info
 #prepend-path PKG_CONFIG_PATH $modroot/lib/pkgconfig
 
 #variables específicas
-setenv TSSCDS $modroot
+setenv AMK $modroot
 #########################################

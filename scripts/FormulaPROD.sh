@@ -1,9 +1,9 @@
 #!/bin/bash
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 
 awk '{if(NR!=2) print $0};{if(NR==2) print ""}' $1 > tmp_file
 file=tmp_file
-inputfile=tsscds.dat
+inputfile=amk.dat
 thd=`awk 'BEGIN{f=0};/NOcreatethdist/{f=1};END{print f}' $inputfile `
 vdw=`awk 'BEGIN{vdw=0};{if($1=="vdw") vdw=1};END{print vdw}' $inputfile `
 if [ $vdw -eq 1 ]; then

@@ -43,11 +43,11 @@ tmp_files=(tmp* temp*)
 trap 'err_report $LINENO' ERR
 trap cleanup EXIT INT
 
-if [ -f tsscds.dat ];then
-   echo "tsscds.dat is in the current dir"
-   inputfile=tsscds.dat
+if [ -f amk.dat ];then
+   echo "amk.dat is in the current dir"
+   inputfile=amk.dat
 else
-   echo "tsscds input file is missing. You sure you are in the right folder?"
+   echo "amk input file is missing. You sure you are in the right folder?"
    exit
 fi
 molecule=` awk '{if($1=="molecule") print $2}'  $inputfile `

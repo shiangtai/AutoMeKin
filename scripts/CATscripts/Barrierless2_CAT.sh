@@ -7,15 +7,15 @@ cp $ratsum ratsum
 cp $catsum catsum
 cp $correlsum correlsum
 lastkmc=`awk 'BEGIN{max=0};{if(NF==5) {if($2>max)max=$2;if($3>max)max=$3;if($4>max)max=$4;if($5>max)max=$5}};END{print max}' ratsum  `
-if [ -f tsscds.dat ];then
-   echo "tsscds.dat is in the current dir"
-   inputfile=tsscds.dat
+if [ -f amk.dat ];then
+   echo "amk.dat is in the current dir"
+   inputfile=amk.dat
 else
    echo "read catalysis file is missing"
    exit
 fi
-eta=`awk '{if($1=="eta") print $2}' tsscds.dat`
-tkmc=`awk '{if($1=="TKMC") print $2}' tsscds.dat`
+eta=`awk '{if($1=="eta") print $2}' amk.dat`
+tkmc=`awk '{if($1=="TKMC") print $2}' amk.dat`
 noHLcalc=`awk '/HLcalc/{print $2}' $inputfile`
 if [ $noHLcalc -eq 1 ]; then
    HLcalc1=`awk '/HLcalc/{print $3}' $inputfile`

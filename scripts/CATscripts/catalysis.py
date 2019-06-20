@@ -32,10 +32,10 @@ if not os.path.exists('catalysis_res/KMC'):
 
 #use os.path.isfile to check whether a file exists	
 
-if os.path.isfile('tsscds.dat'):
-        inputfile='tsscds.dat'
+if os.path.isfile('amk.dat'):
+        inputfile='amk.dat'
 else:
-        print "tsscds.dat is missing"
+        print "amk.dat is missing"
         sys.exit(0)
 
 print "Path to inputfile:",inputfile

@@ -1,5 +1,5 @@
 #!/bin/bash
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 source utils.sh
 #remove tmp files
 tmp_files=(tmp*)
@@ -7,7 +7,7 @@ trap 'err_report $LINENO' ERR
 trap cleanup EXIT INT
 exe=$(basename $0)
 
-inputfile=tsscds.dat
+inputfile=amk.dat
 molecule=` awk '{if($1=="molecule") print $2}'  $inputfile `
 tsdirhl=`awk '{if($1 == "tsdirhl") {print $2;nend=1}};END{if(nend==0) print "tsdirHL_'$molecule'"}' $inputfile`
 # ptgr is the percent of the total number of processes to be considered a relevant path

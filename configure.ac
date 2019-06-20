@@ -1,4 +1,4 @@
-AC_INIT([tsscds], [2018], [emilio.nunez@usc.es],[tsscds-SOURCE])
+AC_INIT([amk], [2018], [emilio.nunez@usc.es],[amk-SOURCE])
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/bbfs.f90])
 AC_PREFIX_DEFAULT([$HOME/AC_PACKAGE_NAME-AC_PACKAGE_VERSION])
@@ -60,10 +60,10 @@ fi
 AC_PATH_PROG(svnversioncommand, svnversion)
 if test "X$svnversioncommand" = "X" || test "`$svnversioncommand -n '.'`" = "Unversioned directory" || test "`$svnversioncommand -n '.'`" = "exported"; 
 then
-AC_DEFINE_UNQUOTED(TSSCDS_BUILD, ["`cat share/tsscds_build`"], [repository svn version])
+AC_DEFINE_UNQUOTED(AMK_BUILD, ["`cat share/amk_build`"], [repository svn version])
 else
-AC_DEFINE_UNQUOTED(TSSCDS_BUILD, ["`svnversion -n`"], [repository svn version])
-`svnversion -n > share/tsscds_build`
+AC_DEFINE_UNQUOTED(AMK_BUILD, ["`svnversion -n`"], [repository svn version])
+`svnversion -n > share/amk_build`
 fi
 
 AC_CONFIG_FILES([Makefile])

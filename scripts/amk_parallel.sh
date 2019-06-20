@@ -1,6 +1,6 @@
 #!/bin/bash
 # default sbatch FT2
-#SBATCH --output=tsscds_parallel-%j.log
+#SBATCH --output=amk_parallel-%j.log
 #SBATCH --time=04:00:00
 # partition selection
 
@@ -15,7 +15,7 @@
 
 #exe=$(basename $0)
 # under batchs systems the scripts are copied to a generic script (in slurm slurm_script)
-exe="tsscds_parallel.sh"
+exe="amk_parallel.sh"
 source utils.sh
 
 #current working dir
@@ -57,14 +57,14 @@ else
 fi
 natom=$(awk 'NR==1{print $1}' ${molecule}.xyz)      
 
-if [ "$inputfile" == "tsscds.dat" ]; then
-   echo "The name of the input file is tsscds.dat"
+if [ "$inputfile" == "amk.dat" ]; then
+   echo "The name of the input file is amk.dat"
    echo ""
 else
    echo "The name of the input file is $inputfile"
-   echo "tsscds.dat is a symbolic link of $inputfile"
+   echo "amk.dat is a symbolic link of $inputfile"
    echo ""
-   ln -sf $inputfile tsscds.dat
+   ln -sf $inputfile amk.dat
 fi
 
 ###Adding path to tsdirll and tsdirhl

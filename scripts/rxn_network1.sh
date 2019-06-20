@@ -1,5 +1,5 @@
 #!/bin/bash
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 source utils.sh
 #remove tmp files
 tmp_files=( deg* ConnMat atsdum2.out labels mingeom ScalMat sprint.* symm.dat tmp*)
@@ -13,7 +13,7 @@ exe=$(basename $0)
 # ci=2 "echo -n >workdir/conf_isomer.out". All isomers are considered in the kinetics
 ci=$1
 
-inputfile=tsscds.dat
+inputfile=amk.dat
 molecule=`awk '{if($1=="molecule") print $2}' $inputfile`
 natom="$(awk 'NR==1,NR==1{print $1}' $molecule.xyz)"
 tsdirll=`awk '{if($1 == "tsdirll") {print $2;nend=1}};END{if(nend==0) print "tsdirLL_'$molecule'"}' $inputfile`

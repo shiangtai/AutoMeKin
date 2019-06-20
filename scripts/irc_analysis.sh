@@ -3,7 +3,7 @@
 source utils.sh
 
 
-inputfile=tsscds.dat
+inputfile=amk.dat
 molecule=` awk '{if($1=="molecule") print $2}'  $inputfile `
 tsdirll=`awk '{if($1 == "tsdirll") {print $2;nend=1}};END{if(nend==0) print "'$PWD'/tsdirLL_'$molecule'"}' $inputfile`
 TKMC=`awk '{if($1 == "TKMC") {print $2;nend=1}};END{if(nend==0) print "298"}' $inputfile`

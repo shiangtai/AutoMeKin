@@ -23,7 +23,7 @@ j=0
 #
 dc0_max={}
 sol={}
-originpf='tsscds.dat'
+originpf='amk.dat'
 imt=fileread(originpf)
 for i in range(len(imt)):
 	col=imt[i].split()
@@ -46,7 +46,7 @@ for i in range(len(icon)):
                         sol=float(col[3])
                         dc0_max[j]=dc0_max[j]*sol
 c0_max=dc0_max.values()
-cmd='cp '+'${TSSCDS}/share/CAT/param .'
+cmd='cp '+'${AMK}/share/CAT/param .'
 os.system(cmd)
 for ie in range(len(c0_max)):
 	rate_ie=open('catalysis_res/KMC/kmc_files/rate_'+str(ie),'w')
@@ -63,7 +63,7 @@ for ie in range(len(c0_max)):
 				if not os.path.isfile('k'):
 					print "Calc. ",j," of molecule ",ie," step ",i," has not finished yet"
 				else:
-					cmd='gnuplot '+'${TSSCDS}/share/CAT/fit.gp 2>error.log'
+					cmd='gnuplot '+'${AMK}/share/CAT/fit.gp 2>error.log'
        					os.system(cmd)
 					rate[j]=float(system_call('get_rate2.sh '+vol))
 					cmd='rm error.log fit.log'

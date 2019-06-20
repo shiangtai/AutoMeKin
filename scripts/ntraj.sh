@@ -2,7 +2,7 @@ huge=10000
 tot=0
 for i in $(seq 1 $huge)
 do
-   file=batch$i/tsscds.log
+   file=batch$i/amk.log
    if [ -f $file ]; then
       nt=`awk 'BEGIN{nt=0};/Trajectory/{nt=$3};END{print nt}' $file`
       ((tot=tot+nt))

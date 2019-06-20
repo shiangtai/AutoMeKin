@@ -1,5 +1,5 @@
 #!/bin/bash
-sharedir=${TSSCDS}/share
+sharedir=${AMK}/share
 name=$1
 jobtype=$2
 if [ $jobtype -eq 2 ]; then

@@ -1,6 +1,6 @@
 natom=$1
 natomA=$2
-inputfile=tsscds.dat
+inputfile=amk.dat
 thd=`awk 'BEGIN{f=0};/NOcreatethdist/{f=1};END{print f}' $inputfile `
 sep_frag.sh $natomA 5 > mingeom
 echo "1" $natom >sprint.dat
