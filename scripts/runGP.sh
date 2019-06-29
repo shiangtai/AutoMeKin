@@ -10,5 +10,5 @@ echo "tsdirll $tsdirll"  >> batch$1/amk.dat
 echo "tsdirhl $tsdirhl"  >> batch$1/amk.dat
 cp $2.xyz batch$1
 if [ -f thdist  ]; then cp  thdist batch$1 ; fi
-(cd batch$1 && amk.sh amk.dat >tsscds.log)
+(cd batch$1 && amk.sh amk.dat >amk.log)
 
