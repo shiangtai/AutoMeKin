@@ -25,4 +25,4 @@ else
      g09 <${name}.dat> ${name}.log
    fi
 fi
-rm ${name}.dat
+#rm ${name}.dat
