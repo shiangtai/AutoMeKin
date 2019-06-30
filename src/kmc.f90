@@ -74,7 +74,7 @@ outter: do inran=1,nran
         if(p(j)<pold(j)) sig(j)=-1
         if(sig(j)*sigold(j)<0) then
            rep(j)=rep(j)+1
-           if(rep(j)==1000) exit inner
+           if(rep(j)>=10.d6) exit inner
         endif
      enddo eq
 !Test of equilibrium
