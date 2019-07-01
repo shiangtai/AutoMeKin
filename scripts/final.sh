@@ -279,6 +279,8 @@ do
   echo "${pre}plot 'pop_data_$postb' u 1:$j w l title '$title'"  >>${final}/population${postb}.gnu
 done
 echo pause -1  >> ${final}/population${postb}.gnu
+gnuplot <${final}/population${postb}.gnu>population${postb}.pdf
+cp population${postb}.pdf ${final}
 
 
 ##Moving diagram.gnu  to FINAL_LL_${molecule}
@@ -322,7 +324,6 @@ NR>FNR{
 #ps2pdf RXNet.cg.ps RXNet.cg.pdf
 #enscript --margins=60::: --header='$n|%W|Page $% of $=' -p RXNet.rel.ps RXNet.rel
 #ps2pdf RXNet.rel.ps RXNet.rel.pdf
-#gnuplot <population${postb}.gnu>population${postb}.pdf
 #pdftk ${sharedir}/header.pdf ../convergence.pdf MINinfo.pdf TSinfo.pdf RXNet.pdf RXNet.cg.pdf graph_all.pdf graph_kin.pdf population${postb}.pdf cat output report_in.pdf
 #cpdf -scale-to-fit a4portrait report_in.pdf -o report.pdf
 ###
