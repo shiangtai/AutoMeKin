@@ -320,6 +320,8 @@ cd ${final}
 #enscript --margins=60::: --header='$n|%W|Page $% of $=' -p RXNet.cg.ps RXNet.cg
 #ps2pdf RXNet.cg.ps RXNet.cg.pdf
 gnuplot <population${postb}.gnu>population${postb}.pdf
+gnuplot <Energy_profile.gnu>Energy_profile.pdf
+rm -rf population${postb}.gnu Energy_profile.gnu
 #enscript --margins=60::: --header='$n|%W|Page $% of $=' -p RXNet.rel.ps RXNet.rel
 #ps2pdf RXNet.rel.ps RXNet.rel.pdf
 #pdftk ${sharedir}/header.pdf ../convergence.pdf MINinfo.pdf TSinfo.pdf RXNet.pdf RXNet.cg.pdf graph_all.pdf graph_kin.pdf population${postb}.pdf cat output report_in.pdf
