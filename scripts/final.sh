@@ -310,7 +310,7 @@ NR>FNR{
 #track.py ${formula}
 #enscript --margins=60::: --header='$n|%W|Page $% of $=' -p convergence.ps convergence.txt
 #ps2pdf convergence.ps convergence.pdf
-#cd ${final}
+cd ${final}
 #enscript --margins=60::: --header='$n|%W|Page $% of $=' -p MINinfo.ps MINinfo
 #ps2pdf MINinfo.ps MINinfo.pdf
 #enscript --margins=60::: --header='$n|%W|Page $% of $=' -p TSinfo.ps TSinfo
