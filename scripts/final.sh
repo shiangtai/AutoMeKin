@@ -3,7 +3,7 @@ sharedir=${AMK}/share
 
 source utils.sh
 #On exit remove tmp files
-tmp_files=(tmp*)
+tmp_files=(tmp* MINinfo.ps MINinfo.pdf TSinfo.ps TSinfo.pdf RXNet.ps RXNet.pdf RXNet.cg.ps RXNet.cg.pdf RXNet.rel.ps RXNet.rel.pdf convergence.ps population*.pdf report_in.pdf)
 trap 'err_report $LINENO' ERR
 trap cleanup EXIT INT
 
@@ -270,6 +270,7 @@ echo set xtics $xtics >> ${final}/population${postb}.gnu
 echo "set xlabel 'Time ($units)' font 'Times-Roman, 18' " >> ${final}/population${postb}.gnu
 echo set key noreverse top  >> ${final}/population${postb}.gnu
 echo "set ylabel 'Population' font 'Times-Roman, 18'" >> ${final}/population${postb}.gnu
+echo "set multiplot" >> ${final}/population${postb}.gnu
 for i in $(seq $nplot)
 do
   title=$(awk '/Time/{print $(NF-'$nplot'+'$i')}' ${final}/kinetics$postb)
@@ -301,5 +302,28 @@ NR>FNR{
   else
      print $0
 }' tmp_rel $file | sed 's@CONN@@g' > ${final}/RXNet.rel
+###
+
+###Uncomment the lines below in rxnkin.usc.es
+##These lines will create the Graphs and the report.pdf
+#rxn.py LL ${molecule}  > tmp_rxn 2>&1
+#formula=$(FormulaMOL.sh input.xyz | awk 'NR==1{print $0}')
+#track.py ${formula}
+#enscript --margins=60::: --header='$n|%W|Page $% of $=' -p convergence.ps convergence.txt
+#ps2pdf convergence.ps convergence.pdf
+#cd ${final}
+#enscript --margins=60::: --header='$n|%W|Page $% of $=' -p MINinfo.ps MINinfo
+#ps2pdf MINinfo.ps MINinfo.pdf
+#enscript --margins=60::: --header='$n|%W|Page $% of $=' -p TSinfo.ps TSinfo
+#ps2pdf TSinfo.ps TSinfo.pdf
+#enscript --margins=60::: --header='$n|%W|Page $% of $=' -p RXNet.ps RXNet
+#ps2pdf RXNet.ps RXNet.pdf
+#enscript --margins=60::: --header='$n|%W|Page $% of $=' -p RXNet.cg.ps RXNet.cg
+#ps2pdf RXNet.cg.ps RXNet.cg.pdf
+#enscript --margins=60::: --header='$n|%W|Page $% of $=' -p RXNet.rel.ps RXNet.rel
+#ps2pdf RXNet.rel.ps RXNet.rel.pdf
+#gnuplot <population${postb}.gnu>population${postb}.pdf
+#pdftk ${sharedir}/header.pdf ../convergence.pdf MINinfo.pdf TSinfo.pdf RXNet.pdf RXNet.cg.pdf graph_all.pdf graph_kin.pdf population${postb}.pdf cat output report_in.pdf
+#cpdf -scale-to-fit a4portrait report_in.pdf -o report.pdf
 ###
 
