@@ -3,7 +3,7 @@ sharedir=${AMK}/share
 
 source utils.sh
 #On exit remove tmp files
-tmp_files=(tmp* MINinfo.ps MINinfo.pdf TSinfo.ps TSinfo.pdf RXNet.ps RXNet.pdf RXNet.cg.ps RXNet.cg.pdf RXNet.rel.ps RXNet.rel.pdf convergence.ps population*.pdf report_in.pdf)
+tmp_files=(tmp* MINinfo.ps MINinfo.pdf TSinfo.ps TSinfo.pdf RXNet.ps RXNet.pdf RXNet.cg.ps RXNet.cg.pdf RXNet.rel.ps RXNet.rel.pdf convergence.ps report_in.pdf)
 trap 'err_report $LINENO' ERR
 trap cleanup EXIT INT
 
@@ -279,9 +279,6 @@ do
   echo "${pre}plot 'pop_data_$postb' u 1:$j w l title '$title'"  >>${final}/population${postb}.gnu
 done
 echo pause -1  >> ${final}/population${postb}.gnu
-gnuplot <${final}/population${postb}.gnu>population${postb}.pdf
-cp population${postb}.pdf ${final}
-
 
 ##Moving diagram.gnu  to FINAL_LL_${molecule}
 plot_relevant.sh
@@ -322,6 +319,7 @@ NR>FNR{
 #ps2pdf RXNet.ps RXNet.pdf
 #enscript --margins=60::: --header='$n|%W|Page $% of $=' -p RXNet.cg.ps RXNet.cg
 #ps2pdf RXNet.cg.ps RXNet.cg.pdf
+gnuplot <population${postb}.gnu>population${postb}.pdf
 #enscript --margins=60::: --header='$n|%W|Page $% of $=' -p RXNet.rel.ps RXNet.rel
 #ps2pdf RXNet.rel.ps RXNet.rel.pdf
 #pdftk ${sharedir}/header.pdf ../convergence.pdf MINinfo.pdf TSinfo.pdf RXNet.pdf RXNet.cg.pdf graph_all.pdf graph_kin.pdf population${postb}.pdf cat output report_in.pdf
