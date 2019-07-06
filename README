@@ -64,13 +64,7 @@ Go to AutoMeKin if you cloned it from github
 
 	cd AutoMeKin
 
-and type:
-
-	autoreconf -i
-
-or,
-
-Go to the amk-SOURCE-2018 folder, if you downloaded the tarball.
+or go to the amk-SOURCE-2018 folder, if you downloaded the tarball.
 
 	cd amk-SOURCE-2018
 

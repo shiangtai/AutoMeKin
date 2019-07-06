@@ -144,12 +144,12 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/emilio/AutoMeKin/missing aclocal-1.13
+ACLOCAL = ${SHELL} /home/emiliomartineznunez/AutoMeKin/missing aclocal-1.13
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/emilio/AutoMeKin/missing autoconf
-AUTOHEADER = ${SHELL} /home/emilio/AutoMeKin/missing autoheader
-AUTOMAKE = ${SHELL} /home/emilio/AutoMeKin/missing automake-1.13
+AUTOCONF = ${SHELL} /home/emiliomartineznunez/AutoMeKin/missing autoconf
+AUTOHEADER = ${SHELL} /home/emiliomartineznunez/AutoMeKin/missing autoheader
+AUTOMAKE = ${SHELL} /home/emiliomartineznunez/AutoMeKin/missing automake-1.13
 AWK = gawk
 BC_CALCULATOR = /usr/bin/bc
 CC = gcc
@@ -177,7 +177,7 @@ LIBOBJS =
 LIBS = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/emilio/AutoMeKin/missing makeinfo
+MAKEINFO = ${SHELL} /home/emiliomartineznunez/AutoMeKin/missing makeinfo
 MKDIR_P = /usr/bin/mkdir -p
 OBJEXT = o
 PACKAGE = amk-SOURCE
@@ -189,21 +189,21 @@ PACKAGE_URL =
 PACKAGE_VERSION = 2018
 PARALLELS_CHECK = yes
 PATH_SEPARATOR = :
-PYTHON = /home/emilio/miniconda3/bin/python
+PYTHON = /usr/bin/python
 PYTHON_EXEC_PREFIX = ${exec_prefix}
-PYTHON_PLATFORM = linux
+PYTHON_PLATFORM = linux2
 PYTHON_PREFIX = ${prefix}
-PYTHON_VERSION = 3.6
+PYTHON_VERSION = 2.7
 SET_MAKE = 
 SHELL = /bin/sh
 SQLITE_CHECK = yes
 STRIP = 
 VERSION = 2018
 ZENITY = /usr/bin/zenity
-abs_builddir = /home/emilio/AutoMeKin/src/HL
-abs_srcdir = /home/emilio/AutoMeKin/src/HL
-abs_top_builddir = /home/emilio/AutoMeKin
-abs_top_srcdir = /home/emilio/AutoMeKin
+abs_builddir = /home/emiliomartineznunez/AutoMeKin/src/HL
+abs_srcdir = /home/emiliomartineznunez/AutoMeKin/src/HL
+abs_top_builddir = /home/emiliomartineznunez/AutoMeKin
+abs_top_srcdir = /home/emiliomartineznunez/AutoMeKin
 ac_ct_CC = gcc
 ac_ct_F77 = gfortran
 ac_ct_FC = gfortran
@@ -224,7 +224,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/emilio/AutoMeKin/install-sh
+install_sh = ${SHELL} /home/emiliomartineznunez/AutoMeKin/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -235,11 +235,11 @@ oldincludedir = /usr/include
 pdfdir = ${docdir}
 pkgpyexecdir = ${pyexecdir}/amk-SOURCE
 pkgpythondir = ${pythondir}/amk-SOURCE
-prefix = /home/emilio/amk-2018
+prefix = /home/emiliomartineznunez/amk-2018
 program_transform_name = s,x,x,
 psdir = ${docdir}
-pyexecdir = ${exec_prefix}/lib/python3.6/site-packages
-pythondir = ${prefix}/lib/python3.6/site-packages
+pyexecdir = ${exec_prefix}/lib64/python2.7/site-packages
+pythondir = ${prefix}/lib/python2.7/site-packages
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
 srcdir = .
@@ -264,9 +264,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu src/HL/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign src/HL/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu src/HL/Makefile
+	  $(AUTOMAKE) --foreign src/HL/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
