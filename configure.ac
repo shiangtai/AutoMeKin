@@ -83,7 +83,7 @@ AC_MSG_NOTICE([
 
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  1) "Environment Modules" must be installed in this machine. 
-    Then, you may add the following to your .bash_profile: 
+    Then, you may add the following to your .bashrc: 
 
     module use $prefix/modules		 
 
