@@ -1,4 +1,4 @@
-### amk
+## amk
 
 A computer program for finding reaction mechanisms and solving the 
 kinetics.
@@ -19,7 +19,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-### INSTALLATION INSTRUCTIONS
+## INSTALLATION INSTRUCTIONS
 
 Once you have downloaded the source code, untar and unzip the file:
 
@@ -29,7 +29,7 @@ or clone the code from github:
 
 	git clone https://github.com/emartineznunez/AutoMeKin.git AutoMeKin
 
-**DEPENDENCIES**
+### DEPENDENCIES
 
 Before installing amk for the first time, be aware that the following packages are needed:
 
@@ -54,7 +54,7 @@ These packages might also be useful to analyze the results:
 
 molden, sqlitebrowser
 
-**INSTALLATION**
+### INSTALLATION
 
 Once the above packages are installed, either:
 
