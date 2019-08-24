@@ -1,10 +1,10 @@
-===========================================================================
+### amk
 
-amk. A computer program for finding reaction mechanisms and solving the 
+A computer program for finding reaction mechanisms and solving the 
 kinetics.
 Copyright (C) 2018  Emilio Martinez-Nunez, George L. Barnes, Sabine Kopec, 
 Daniel Pelaez-Ruiz, Aurelio Rodriguez, Roberto Rodriguez-Fernandez, 
-James J. P. Stewart, Saulo A. Vazquez  
+James J. P. Stewart, Saulo A. Vazquez
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -19,9 +19,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-===========================================================================
-
-====================INSTALLATION INSTRUCTIONS==============================
+### INSTALLATION INSTRUCTIONS
 
 Once you have downloaded the source code, untar and unzip the file:
 
@@ -31,7 +29,7 @@ or clone the code from github:
 
 	git clone https://github.com/emartineznunez/AutoMeKin.git AutoMeKin
 
-====================DEPENDENCIES===========================================
+**DEPENDENCIES**
 
 Before installing amk for the first time, be aware that the following packages are needed:
 
@@ -56,7 +54,7 @@ These packages might also be useful to analyze the results:
 
 molden, sqlitebrowser
 
-====================INSTALLATION===========================================
+**INSTALLATION**
 
 Once the above packages are installed, either:
 
@@ -91,9 +89,7 @@ module use path_to_program/modules
 
 where path_to_program is the path where you installed amk (e.g., $HOME/amk-2018).
 
-===========================================================================
-
-====================PROGRAM EXECUTION======================================
+## PROGRAM EXECUTION
 
 To start using any of the scripts of the program, you have to load amk/2018 module:
 
@@ -114,5 +110,3 @@ To run the high-level calculations use:
 	nohup hlcalcs.sh molecule.dat runningtasks >hlcalcs.log 2>&1 &
 
 For more details, follow the instructions given in the tutorial.
-
-===========================================================================
