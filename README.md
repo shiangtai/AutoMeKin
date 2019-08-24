@@ -60,44 +60,60 @@ Once the above packages are installed, either:
 
 Go to AutoMeKin if you cloned it from github
 
-	cd AutoMeKin
+```
+cd AutoMeKin
+```
 
 or go to the amk-SOURCE-2018 folder, if you downloaded the tarball.
 
-	cd amk-SOURCE-2018
+```
+cd amk-SOURCE-2018
+```
 
 In both cases, the process continues the same way. Now type:
 
-	./configure
+```
+./configure
+```
 
 This will install amk in $HOME/amk-2018 by default. If you want to install it in a different directory, type:
 
-	./configure --prefix=path_to_program
+```
+./configure --prefix=path_to_program
+```
 
 Finally, complete the installation:
 
-	make
-	make install
-	make clean
+```
+make
+make install
+make clean
+```
 
 The last command (make clean) is only necessary if you want to remove from the src directory the object files 
 and executables created in the compilation process.
 
 For convenience, and once “Environment Modules” has been installed, you should add the following line to your .bashrc file:
 
+```
 module use path_to_program/modules
+```
 
 where path_to_program is the path where you installed amk (e.g., $HOME/amk-2018).
 
-## PROGRAM EXECUTION
+### PROGRAM EXECUTION
 
 To start using any of the scripts of the program, you have to load amk/2018 module:
 
-	module load amk/2018
+```
+module load amk/2018
+```
 
 To run the low-level calculations use:
 
-	nohup llcalcs.sh molecule.dat ntasks niter runningtasks >llcalcs.log 2>&1 &
+```
+nohup llcalcs.sh molecule.dat ntasks niter runningtasks >llcalcs.log 2>&1 &
+```
 
 where:
 molecule is the name of your molecule
@@ -107,6 +123,8 @@ runningtasks is the number of simultaneous tasks
 
 To run the high-level calculations use:
 
-	nohup hlcalcs.sh molecule.dat runningtasks >hlcalcs.log 2>&1 &
+```
+nohup hlcalcs.sh molecule.dat runningtasks >hlcalcs.log 2>&1 &
+```
 
 For more details, follow the instructions given in the tutorial.
